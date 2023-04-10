@@ -3,9 +3,10 @@ import Image from "next/image";
 import logo from "../../public/assets/Images/logo.png";
 import { Storage } from "../Shared/utils/store";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Login = () => {
-  const [data, setData] = useState({
+  const [loginCredential, setLoginCredential] = useState({
     email: "",
     password: "",
   });
@@ -16,7 +17,7 @@ const Login = () => {
     // }
 
     if (Storage.getItem("crm_email") && Storage.getItem("crm_password")) {
-      setData({
+      setLoginCredential({
         email: Storage.getItem("crm_email"),
         password: Storage.getItem("crm_password")?.split("_")[0],
       });
@@ -24,9 +25,9 @@ const Login = () => {
   }, []);
 
   const userData = (e) => {
-    const userdata = { ...data };
+    const userdata = { ...loginCredential };
     userdata[e.target.id] = e.target.value;
-    setData(userdata);
+    setLoginCredential(userdata);
   };
 
   const handleLoginReq = (e) => {
@@ -47,10 +48,10 @@ const Login = () => {
 
   const handleRememberMe = (e) => {
     if (e.target.checked) {
-      Storage.setItem("__ue__", data.email);
+      Storage.setItem("__ue__", loginCredential.email);
       Storage.setItem(
         "__up__",
-        data.password +
+        loginCredential.password +
           "_" +
           makeid(3) +
           "_" +
@@ -88,7 +89,7 @@ const Login = () => {
                 htmlFor='email'
                 className='block mb-2 text-sm text-gray-600'
               >
-                Email
+                Phone
               </label>
               {/* <Input
               size='large'
@@ -133,19 +134,36 @@ const Login = () => {
               />
             </div>
 
-            <div className='mb-6 font-poppins flex items-center'>
-              <input
-                className='cursor-pointer mr-2'
-                type='checkbox'
-                name='remember me'
-                id='remember_me'
-                defaultValue='off'
-                disabled={data.email && data.password ? false : true}
-                onChange={handleRememberMe}
-              />
-              <label className='cursor-pointer' htmlFor='remember_me'>
-                Remember Me
-              </label>
+            <div className='mb-6 font-poppins flex items-center justify-between'>
+              <div>
+                <input
+                  className='cursor-pointer mr-2'
+                  type='checkbox'
+                  name='remember me'
+                  id='remember_me'
+                  defaultValue='off'
+                  disabled={
+                    loginCredential.email && loginCredential.password
+                      ? false
+                      : true
+                  }
+                  onChange={handleRememberMe}
+                />
+                <label className='cursor-pointer' htmlFor='remember_me'>
+                  Remember Me
+                </label>
+              </div>
+
+              <div className='text-sm'>
+                Have not register yet?{" "}
+                <Link
+                  href={"/registration"}
+                  className='text-orange-700 font-semibold'
+                >
+                  {" "}
+                  Register
+                </Link>
+              </div>
             </div>
 
             <div className='mb-6'>
