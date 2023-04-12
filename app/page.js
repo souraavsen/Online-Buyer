@@ -5,7 +5,7 @@ import Navbar from "./Shared/Components/Navbar";
 export default function Home() {
   return (
     <div>
-      <Navbar />
+      <Navbar dark={true} />
       <LandingPage />
       <Footer />
     </div>

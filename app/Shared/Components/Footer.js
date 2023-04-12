@@ -7,8 +7,11 @@ import { Fade } from "react-awesome-reveal";
 import FB from "../../../public/assets/Icons/Fb.svg";
 import Insta from "../../../public/assets/Icons/Insta.svg";
 import Twitter from "../../../public/assets/Icons/Twiter.svg";
+import { usePathname, useRouter } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+
   return (
     <div className='max-w-screen-xl px-8 pt-14 lg:pt-20 mx-auto'>
       <div className='border-t pb-5'></div>
@@ -16,11 +19,13 @@ const Footer = () => {
         <Fade direction='left' triggerOnce>
           <div className='text-xl lg:text-3xl font-semibold'>Online Buyer</div>
         </Fade>
-        <Fade direction='right' triggerOnce>
-          <div className='bg-white text-xs lg:text-sm font-semibold rounded-full shadow-md px-6 py-3 cursor-pointer'>
-            <Link href={"../products"}>Explore Products</Link>
-          </div>
-        </Fade>
+        {pathname === "/" ? (
+          <Fade direction='right' triggerOnce>
+            <div className='bg-white text-xs lg:text-sm font-semibold rounded-full shadow-md px-6 py-3 cursor-pointer'>
+              <Link href={"../products"}>Explore Products</Link>
+            </div>
+          </Fade>
+        ) : null}
       </div>
       <div className='border-b pt-5'></div>
 
@@ -101,13 +106,13 @@ const Footer = () => {
         </div>
         <div className='flex'>
           <Link href={"https://www.facebook.com/"}>
-            <Image src={FB} />
+            <Image src={FB} alt="Social Icon" />
           </Link>
           <Link href={"https://www.instagram.com/"}>
-            <Image src={Insta} className='mx-3' />
+            <Image src={Insta} alt="Social Icon" className='mx-3' />
           </Link>
           <Link href={"https://twitter.com/"}>
-            <Image src={Twitter} />
+            <Image src={Twitter} alt="Social Icon" />
           </Link>
         </div>
       </div>

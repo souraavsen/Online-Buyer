@@ -42,7 +42,7 @@ const Registration = () => {
       <div className='container max-w-md border border-gray-200 rounded-md p-3 bg-white '>
         <div className='pb-3 pt-8'>
           <div className='flex flex-col items-center'>
-            <Image src={logo} width={50} height={50} />
+            <Image src={logo} alt="Brand Logo" width={50} height={50} />
           </div>
         </div>
 

@@ -11,7 +11,6 @@ const About = () => {
         <Fade direction='right' triggerOnce>
           <div className='w-6/12 mx-auto shadow-lg p-5 rounded-3xl bg-white  lg:mb-0'>
             <Image src={Image1} alt='img' className='w-full pb-5' />
-            {/* <Image src={Image2} alt='img' className='' /> */}
           </div>
         </Fade>
 

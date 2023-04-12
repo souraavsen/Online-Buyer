@@ -6,11 +6,15 @@ import CartIcon from "../../../public/assets/Icons/shopping_cart.svg";
 import Cart from "./Cart";
 import { Modal } from "antd";
 
-const Navbar = () => {
+const Navbar = ({ dark }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className='py-3 bg-[#5143F6] text-white'>
+    <nav
+      className={`py-3 ${
+        dark ? "text-white bg-[#5143F6]" : "text-black bg-white"
+      }`}
+    >
       <div className='w-10/12 mx-auto flex justify-between items-center'>
         <div className='w-1/2'>
           <div className='flex items-center' href='#' data-config-id='brand'>
@@ -35,8 +39,9 @@ const Navbar = () => {
             </li>
             <li className='nav-item mx-2 cursor-pointer'>
               <Image
-                className='text-white'
+                className={`${dark ? "text-white" : "text-black"}`}
                 src={CartIcon}
+                alt='Cart'
                 width={18}
                 onClick={() => setOpen(!open)}
               />

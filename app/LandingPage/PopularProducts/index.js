@@ -21,8 +21,8 @@ const PopularProducts = () => {
         Most Popular Products
       </div>
       <div className='grid grid-cols-4'>
-        {popularProducts?.map((product) => (
-          <Flip duration={800} triggerOnce>
+        {popularProducts?.map((product,i) => (
+          <Flip key={i} duration={800} triggerOnce>
             <Product product={product} key={product.id} />
           </Flip>
         ))}
