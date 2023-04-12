@@ -2,6 +2,7 @@
 import { getPopularProducts } from "@/app/Shared/services/products";
 import React, { useEffect, useState } from "react";
 import Product from "./Product";
+import { Flip } from "react-awesome-reveal";
 
 const PopularProducts = () => {
   const [popularProducts, setPopularProducts] = useState([]);
@@ -21,7 +22,9 @@ const PopularProducts = () => {
       </div>
       <div className='grid grid-cols-4'>
         {popularProducts?.map((product) => (
-          <Product product={product} key={product.id} />
+          <Flip duration={800} triggerOnce>
+            <Product product={product} key={product.id} />
+          </Flip>
         ))}
       </div>
       <div className='flex justify-center items-center py-4'>
