@@ -1,19 +1,10 @@
 "use client";
-import { getPopularProducts } from "@/app/Shared/services/products";
-import React, { useEffect, useState } from "react";
-import Product from "./Product";
+import useProducts from "@/app/Shared/Hooks/useProducts";
 import { Flip } from "react-awesome-reveal";
+import Product from "./Product";
 
 const PopularProducts = () => {
-  const [popularProducts, setPopularProducts] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const popularProductsResponse = await getPopularProducts();
-      console.log("popularProducts", popularProductsResponse?.data);
-      setPopularProducts(popularProductsResponse?.data?.slice(0, 4));
-    })();
-  }, []);
+  const [products] = useProducts();
 
   return (
     <div className='w-10/12 mx-auto'>
@@ -21,9 +12,9 @@ const PopularProducts = () => {
         Most Popular Products
       </div>
       <div className='grid grid-cols-4'>
-        {popularProducts?.map((product,i) => (
-          <Flip key={i} duration={800} triggerOnce>
-            <Product product={product} key={product.id} />
+        {products?.slice(0, 4)?.map((product, i) => (
+          <Flip key={product.id} duration={800} triggerOnce>
+            <Product product={product} />
           </Flip>
         ))}
       </div>

@@ -2,14 +2,14 @@ import React from "react";
 import Navbar from "../Shared/Components/Navbar";
 import Footer from "../Shared/Components/Footer";
 import ProductsFilter from "./ProductsFilter";
-import Products from "./;
+import AllProducts from "./AllProducts";
 
 const Products = () => {
   return (
     <>
-      <Navbar dark={false}/>
+      <Navbar dark={false} />
       <ProductsFilter />
-      <Products/>
+      <AllProducts />
       <Footer />
     </>
   );

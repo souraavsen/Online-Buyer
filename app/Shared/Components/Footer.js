@@ -52,18 +52,10 @@ const Footer = () => {
 
         <Fade direction='left' delay={500} triggerOnce>
           <ul className='text-zinc-600 pb-5 lg:pb-0'>
-            <Link href={"../blogs"}>
-              <li className='mb-4 cursor-pointer'>Blogs</li>
-            </Link>
-            <Link href={"../stories"}>
-              <li className='mb-4 cursor-pointer'>Stories</li>
-            </Link>
-            <Link href={"../events"}>
-              <li className='mb-4 cursor-pointer'>Events</li>
-            </Link>
-            <Link href={"../learn"}>
-              <li className='mb-4 cursor-pointer'>Learn</li>
-            </Link>
+            <li className='mb-4 cursor-pointer'>Blogs</li>
+            <li className='mb-4 cursor-pointer'>Stories</li>
+            <li className='mb-4 cursor-pointer'>Events</li>
+            <li className='mb-4 cursor-pointer'>Learn</li>
           </ul>
         </Fade>
 
@@ -106,13 +98,13 @@ const Footer = () => {
         </div>
         <div className='flex'>
           <Link href={"https://www.facebook.com/"}>
-            <Image src={FB} alt="Social Icon" />
+            <Image src={FB} alt='Social Icon' />
           </Link>
           <Link href={"https://www.instagram.com/"}>
-            <Image src={Insta} alt="Social Icon" className='mx-3' />
+            <Image src={Insta} alt='Social Icon' className='mx-3' />
           </Link>
           <Link href={"https://twitter.com/"}>
-            <Image src={Twitter} alt="Social Icon" />
+            <Image src={Twitter} alt='Social Icon' />
           </Link>
         </div>
       </div>

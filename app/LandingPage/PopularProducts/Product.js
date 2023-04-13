@@ -1,10 +1,12 @@
 "use client";
+import useCart from "@/app/Shared/Hooks/useCart";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Zoom } from "react-awesome-reveal";
 
 const Product = ({ product }) => {
+  const [cart] = useCart();
   return (
     <div>
       <Zoom triggerOnce>

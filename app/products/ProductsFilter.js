@@ -67,7 +67,7 @@ const ProductsFilter = () => {
                 <div className='w-full flex relative'>
                   <input
                     type='text'
-                    placeholder='Search Campaigns'
+                    placeholder='Product Name'
                     className='bg-white bg-opacity-30 rounded-md w-full px-2 py-2 placeholder-white outline-none'
                   />
                   {/* <Search className="text-xl mt-1.5 absolute right-2"/> */}
