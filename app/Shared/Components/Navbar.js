@@ -2,7 +2,8 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import logo from "../../../public/assets/Images/logo.png";
-import CartIcon from "../../../public/assets/Icons/shopping_cart.svg";
+import CartIconDark from "../../../public/assets/Icons/shopping_cart_dark.svg";
+import CartIconLight from "../../../public/assets/Icons/shopping_cart.svg";
 import Cart from "./Cart";
 import { Modal } from "antd";
 
@@ -38,13 +39,21 @@ const Navbar = ({ dark }) => {
               <div className='nav-link ps-2 cursor-pointer'>Blog</div>
             </li>
             <li className='nav-item mx-2 cursor-pointer'>
-              <Image
-                className={`${dark ? "text-white" : "text-black"}`}
-                src={CartIcon}
-                alt='Cart'
-                width={18}
-                onClick={() => setOpen(!open)}
-              />
+              {dark ? (
+                <Image
+                  src={CartIconLight}
+                  alt='Cart'
+                  width={18}
+                  onClick={() => setOpen(!open)}
+                />
+              ) : (
+                <Image
+                  src={CartIconDark}
+                  alt='Cart'
+                  width={18}
+                  onClick={() => setOpen(!open)}
+                />
+              )}
             </li>
 
             <Modal
